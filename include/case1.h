@@ -8,10 +8,10 @@
 
 class Case1Test : public BaseScheduleTest {
   struct Schedule {
-    std::map<double, double> data;
+    std::map<double, double> data; // note std::map is ordered
   };
   Schedule schedule;
-
+  float firstTimeStamp = 0;
 public:
   std::string name() override;
   void fillHourlyData() override;
