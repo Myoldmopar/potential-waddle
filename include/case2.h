@@ -7,7 +7,7 @@ class Case2Test : public BaseScheduleTest {
 
 public:
     void setup() override;
-    void query() override;
+    void query(float) override;
 };
 
 #endif // CASE2_H

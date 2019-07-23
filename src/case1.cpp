@@ -3,7 +3,7 @@
 #include <vector>
 
 // Worker function for getting a schedule value
-float inline Case1Test::getScheduleValue(int index) {
+float inline Case1Test::getScheduleValue(int index, float currentTime) {
   auto & thisSchedule = schedules[index];
   if (thisSchedule.scheduledData.find(currentTime) != thisSchedule.scheduledData.end()) {
     return thisSchedule.scheduledData[currentTime];
@@ -24,12 +24,7 @@ void Case1Test::setup() {
   }
 }
 
-void Case1Test::query() {
-  for (int hour = 1; hour <= 8760; hour++) {
-    for (int timeStep = 1; timeStep <= 4; timeStep++) {
-      currentTime = float(hour) + float(timeStep) / 4.0;
-      // get a schedule value
-      getScheduleValue(0);
-    }
-  }
+void Case1Test::query(float currentTime) {
+  // get a schedule value
+  getScheduleValue(0, currentTime);
 }

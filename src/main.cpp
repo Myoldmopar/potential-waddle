@@ -14,7 +14,13 @@ void timeFunctions(BaseScheduleTest *b, std::string const& desc) {
   std::cout << desc << " Schedule Setup Time: " << duration1.count() << " μs" << std::endl;
   // exercise the schedule data
   auto start2 = std::chrono::high_resolution_clock::now();
-  b->query();
+  float currentTime = 0.0;
+  for (int hour = 1; hour <= 8760; hour++) {
+    for (int timeStep = 1; timeStep <= 4; timeStep++) {
+      currentTime = float(hour) + float(timeStep) / 4.0;
+      b->query(currentTime);
+    }
+  }
   auto stop2 = std::chrono::high_resolution_clock::now();
   auto duration2 = std::chrono::duration_cast<std::chrono::milliseconds>(stop2 - start2);
   std::cout << desc << " Schedule Query Time: " << duration2.count() << " ms" << std::endl;

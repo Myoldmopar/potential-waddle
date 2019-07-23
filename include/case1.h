@@ -10,10 +10,10 @@ class Case1Test : public BaseScheduleTest {
         std::map<double, double> scheduledData;
     };
     std::vector<Schedule> schedules;
-    float inline getScheduleValue(int index);
+    float inline getScheduleValue(int, float);
 public:
     void setup() override;
-    void query() override;
+    void query(float) override;
 };
 
 #endif // CASE1_H

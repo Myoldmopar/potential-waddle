@@ -3,9 +3,8 @@
 
 class BaseScheduleTest {
 public:
-  float currentTime = 0;
   virtual void setup() = 0;
-  virtual void query() = 0;
+  virtual void query(float currentTime) = 0;
 };
 
 #endif // BASE_H

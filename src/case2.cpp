@@ -3,4 +3,4 @@
 
 void Case2Test::setup() {}
 
-void Case2Test::query() {}
+void Case2Test::query(float) {}
