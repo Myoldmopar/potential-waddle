@@ -3,4 +3,4 @@
 
 void Case2Test::setup() {}
 
-void Case2Test::query(float) {}
+float Case2Test::getScheduleValue(float) { return -1; }

@@ -4,7 +4,7 @@
 class BaseScheduleTest {
 public:
   virtual void setup() = 0;
-  virtual void query(float currentTime) = 0;
+  virtual float getScheduleValue(float currentTime) = 0;
 };
 
 #endif // BASE_H

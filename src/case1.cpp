@@ -3,14 +3,16 @@
 #include <vector>
 
 // Worker function for getting a schedule value
-float inline Case1Test::getScheduleValue(int index, float currentTime) {
-  auto & thisSchedule = schedules[index];
-  if (thisSchedule.scheduledData.find(currentTime) != thisSchedule.scheduledData.end()) {
-    return thisSchedule.scheduledData[currentTime];
+float Case1Test::getScheduleValue(float currentTime) {
+  int const scheduleIndex = 0;
+  auto &sch = schedules[scheduleIndex];
+  if (sch.scheduledData.find(currentTime) != sch.scheduledData.end()) {
+    return sch.scheduledData[currentTime];
   } else {
-    for (int i = 0; i < thisSchedule.scheduledData.size(); i++) {
-      if (currentTime >= thisSchedule.scheduledData[i] && currentTime < thisSchedule.scheduledData[i + 1]) {
-        return thisSchedule.scheduledData[i];
+    for (int i = 0; i < sch.scheduledData.size(); i++) {
+      if (currentTime >= sch.scheduledData[i] &&
+          currentTime < sch.scheduledData[i + 1]) {
+        return sch.scheduledData[i];
       }
     }
   }
@@ -20,11 +22,6 @@ float inline Case1Test::getScheduleValue(int index, float currentTime) {
 void Case1Test::setup() {
   schedules.emplace_back();
   for (int hour = 1; hour <= 8760; hour++) {
-    schedules[0].scheduledData[hour] = 2*hour;
+    schedules[0].scheduledData[hour] = 2 * hour;
   }
-}
-
-void Case1Test::query(float currentTime) {
-  // get a schedule value
-  getScheduleValue(0, currentTime);
 }
