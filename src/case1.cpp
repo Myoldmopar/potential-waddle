@@ -14,7 +14,7 @@ float inline Case1Test::getScheduleValue(int index, float currentTime) {
       }
     }
   }
-  exit(1); // shouldn't be able to make it here
+  return -1;
 }
 
 void Case1Test::setup() {
