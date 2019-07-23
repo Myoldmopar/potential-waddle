@@ -1,9 +1,12 @@
 #ifndef BASE_H
 #define BASE_H
 
+#include <string>
+
 class BaseScheduleTest {
 public:
-  virtual void setup() = 0;
+  virtual std::string name() = 0;
+  virtual void fillHourlyData() = 0;
   virtual float getScheduleValue(float currentTime) = 0;
 };
 

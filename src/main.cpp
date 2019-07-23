@@ -1,19 +1,19 @@
 #include <chrono>
 #include <iostream>
+#include <vector>
 
 #include <base.h>
 #include <case1.h>
 #include <case2.h>
 
-using namespace std::chrono;
-
-void timeFunctions(BaseScheduleTest *b, std::string const &desc) {
+float timeFunctions(BaseScheduleTest *b) {
+  using namespace std::chrono;
   // build up the schedule data
   auto start1 = high_resolution_clock::now();
-  b->setup();
+  b->fillHourlyData();
   auto stop1 = high_resolution_clock::now();
-  auto duration1 = duration_cast<std::chrono::microseconds>(stop1 - start1);
-  std::cout << desc << " Setup Time: " << duration1.count() << " μs\n";
+  auto tSetup = duration_cast<microseconds>(stop1 - start1).count();
+  std::cout << " " << b->name() << " Setup Time: " << tSetup << " μs\n";
   // exercise the schedule data
   auto start2 = high_resolution_clock::now();
   float currentTime;
@@ -24,13 +24,20 @@ void timeFunctions(BaseScheduleTest *b, std::string const &desc) {
     }
   }
   auto stop2 = high_resolution_clock::now();
-  auto duration2 = duration_cast<std::chrono::milliseconds>(stop2 - start2);
-  std::cout << desc << " Query Time: " << duration2.count() << " ms\n";
+  auto tQuery = duration_cast<milliseconds>(stop2 - start2).count();
+  std::cout << " " << b->name() << " Query Time: " << tQuery << " ms\n";
+  return (float(tSetup) / 1000000) + (float(tQuery) / 1000);
 }
 
 int main() {
-  Case1Test c1;
-  timeFunctions(&c1, "Case 1");
-  Case2Test c2;
-  timeFunctions(&c2, "Case 2");
+  std::vector<BaseScheduleTest *> toTest{new Case1Test, new Case2Test};
+  int const numTestPasses = 3;
+  for (auto b : toTest) {
+    float timeAggregate = 0.0;
+    for (int i = 0; i < numTestPasses; i++) {
+      timeAggregate += timeFunctions(b);
+    }
+    float const avgTime = timeAggregate / numTestPasses;
+    std::cout << "Average time for " << b->name() << " = " << avgTime << " s\n";
+  }
 }

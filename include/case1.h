@@ -3,16 +3,18 @@
 
 #include <base.h>
 #include <map>
+#include <string>
 #include <vector>
 
 class Case1Test : public BaseScheduleTest {
   struct Schedule {
-    std::map<double, double> scheduledData;
+    std::map<double, double> data;
   };
-  std::vector<Schedule> schedules;
+  Schedule schedule;
 
 public:
-  void setup() override;
+  std::string name() override;
+  void fillHourlyData() override;
   float getScheduleValue(float) override;
 };
 

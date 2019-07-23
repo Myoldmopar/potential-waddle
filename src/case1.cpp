@@ -1,27 +1,28 @@
 #include <case1.h>
 #include <map>
+#include <string>
 #include <vector>
 
-// Worker function for getting a schedule value
+std::string Case1Test::name() {
+  return "Case 1";
+}
+
 float Case1Test::getScheduleValue(float currentTime) {
-  int const scheduleIndex = 0;
-  auto &sch = schedules[scheduleIndex];
-  if (sch.scheduledData.find(currentTime) != sch.scheduledData.end()) {
-    return sch.scheduledData[currentTime];
+  if (schedule.data.find(currentTime) != schedule.data.end()) {
+    return schedule.data[currentTime];
   } else {
-    for (int i = 0; i < sch.scheduledData.size(); i++) {
-      if (currentTime >= sch.scheduledData[i] &&
-          currentTime < sch.scheduledData[i + 1]) {
-        return sch.scheduledData[i];
+    for (int i = 0; i < schedule.data.size(); i++) {
+      if (currentTime >= schedule.data[i] &&
+          currentTime < schedule.data[i + 1]) {
+        return schedule.data[i];
       }
     }
   }
   return -1;
 }
 
-void Case1Test::setup() {
-  schedules.emplace_back();
+void Case1Test::fillHourlyData() {
   for (int hour = 1; hour <= 8760; hour++) {
-    schedules[0].scheduledData[hour] = 2 * hour;
+    schedule.data[hour] = 2 * hour;
   }
 }

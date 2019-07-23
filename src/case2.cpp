@@ -1,6 +1,8 @@
 
 #include <case2.h>
 
-void Case2Test::setup() {}
+std::string Case2Test::name() { return "Case 2"; }
+
+void Case2Test::fillHourlyData() {}
 
 float Case2Test::getScheduleValue(float) { return -1; }

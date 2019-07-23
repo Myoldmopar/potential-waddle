@@ -6,7 +6,8 @@
 class Case2Test : public BaseScheduleTest {
 
 public:
-  void setup() override;
+  std::string name() override;
+  void fillHourlyData() override;
   float getScheduleValue(float) override;
 };
 
