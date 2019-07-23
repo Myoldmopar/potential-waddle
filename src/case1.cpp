@@ -19,9 +19,9 @@ float Case1Test::getScheduleValue(float time) {
     return schedule.data[time];
   } else {
     auto potentialSelection = schedule.data[firstTimeStamp];
-    for (auto & it : schedule.data) {
-      if (time >= schedule.data[it.first]) {
-        potentialSelection = it.second;
+    for (auto const & it : schedule.data) {
+      potentialSelection = it.second;
+      if (it.first > time) {
         break;
       }
     }

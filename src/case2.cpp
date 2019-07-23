@@ -22,7 +22,7 @@ float Case2Test::getScheduleValue(float time) {
     } else {
       auto potentialSelection = values.front();
       for (int i = 0; i < timestamps.size(); i++) {
-        if (time >= timestamps[i]) {
+        if (timestamps[i] >= time) {
           potentialSelection = values[i];
           break;
         }
