@@ -1,7 +1,7 @@
 #ifndef TESTSCHEDULINGSTUFF_CASE2_H
 #define TESTSCHEDULINGSTUFF_CASE2_H
 
-#include "base.h"
+#include <base.h>
 
 class Case2Test : public BaseScheduleTest {
 

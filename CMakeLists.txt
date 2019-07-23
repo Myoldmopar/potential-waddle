@@ -3,4 +3,10 @@ project(TestSchedulingStuff)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(TestSchedulingStuff main.cpp case1.cpp case1.h case2.cpp case2.h base.h)
+add_executable(
+        TestSchedulingStuff
+        include/base.h include/case1.h include/case2.h
+        src/main.cpp src/case1.cpp src/case2.cpp
+        )
+
+include_directories(include)

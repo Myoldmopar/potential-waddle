@@ -1,9 +1,9 @@
 #include <chrono>
 #include <iostream>
 
-#include "case1.h"
-#include "case2.h"
-#include "base.h"
+#include <case1.h>
+#include <case2.h>
+#include <base.h>
 
 void timeFunctions(BaseScheduleTest *b, std::string const& desc) {
   auto start1 = std::chrono::high_resolution_clock::now();

@@ -1,5 +1,5 @@
 
-#include "case2.h"
+#include <case2.h>
 
 void Case2Test::setup() {}
 
