@@ -1,10 +1,11 @@
-#ifndef TESTSCHEDULINGSTUFF_BASE_H
-#define TESTSCHEDULINGSTUFF_BASE_H
+#ifndef BASE_H
+#define BASE_H
 
 class BaseScheduleTest {
 public:
-    virtual void setup() = 0;
-    virtual void query() = 0;
+  float currentTime = 0;
+  virtual void setup() = 0;
+  virtual void query() = 0;
 };
 
-#endif //TESTSCHEDULINGSTUFF_BASE_H
+#endif // BASE_H

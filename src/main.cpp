@@ -6,17 +6,18 @@
 #include <base.h>
 
 void timeFunctions(BaseScheduleTest *b, std::string const& desc) {
+  // build up the schedule data
   auto start1 = std::chrono::high_resolution_clock::now();
   b->setup();
   auto stop1 = std::chrono::high_resolution_clock::now();
   auto duration1 = std::chrono::duration_cast<std::chrono::microseconds>(stop1 - start1);
-  std::cout << desc << " Schedule Setup Time: " << duration1.count() << " microseconds" << std::endl;
-
+  std::cout << desc << " Schedule Setup Time: " << duration1.count() << " μs" << std::endl;
+  // exercise the schedule data
   auto start2 = std::chrono::high_resolution_clock::now();
   b->query();
   auto stop2 = std::chrono::high_resolution_clock::now();
   auto duration2 = std::chrono::duration_cast<std::chrono::milliseconds>(stop2 - start2);
-  std::cout << desc << " Schedule Query Time: " << duration2.count() << " milliseconds" << std::endl;
+  std::cout << desc << " Schedule Query Time: " << duration2.count() << " ms" << std::endl;
 }
 
 int main()

@@ -1,5 +1,5 @@
-#ifndef TESTSCHEDULINGSTUFF_CASE2_H
-#define TESTSCHEDULINGSTUFF_CASE2_H
+#ifndef CASE2_H
+#define CASE2_H
 
 #include <base.h>
 
@@ -10,4 +10,4 @@ public:
     void query() override;
 };
 
-#endif //TESTSCHEDULINGSTUFF_CASE2_H
+#endif // CASE2_H

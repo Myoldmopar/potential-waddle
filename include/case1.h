@@ -1,12 +1,11 @@
-#ifndef TESTSCHEDULINGSTUFF_CASE1_H
-#define TESTSCHEDULINGSTUFF_CASE1_H
+#ifndef CASE1_H
+#define CASE1_H
 
 #include <vector>
 #include <map>
 #include <base.h>
 
 class Case1Test : public BaseScheduleTest {
-    float currentTime;
     struct Schedule {
         std::map<double, double> scheduledData;
     };
@@ -17,4 +16,4 @@ public:
     void query() override;
 };
 
-#endif //TESTSCHEDULINGSTUFF_CASE1_H
+#endif // CASE1_H
