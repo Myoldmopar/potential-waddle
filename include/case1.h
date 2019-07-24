@@ -1,10 +1,11 @@
 #ifndef CASE1_H
 #define CASE1_H
 
-#include <base.h>
 #include <map>
 #include <string>
 #include <vector>
+
+#include <base.h>
 
 class Case1Test : public BaseScheduleTest {
   struct Schedule {
@@ -12,6 +13,7 @@ class Case1Test : public BaseScheduleTest {
   };
   Schedule schedule;
   double firstTimeStamp = 0;
+
 public:
   std::string name() override;
   void fillHourlyData() override;

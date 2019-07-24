@@ -17,7 +17,7 @@ double Case2Test::getScheduleValue(double time) {
   } else {
     auto perfectMatch = std::find(timestamps.begin(), timestamps.end(), time);
     if (perfectMatch != timestamps.end()) {
-      auto const index = std::distance( timestamps.begin(), perfectMatch );
+      auto const index = std::distance(timestamps.begin(), perfectMatch);
       return values[index];
     } else {
       auto potentialSelection = values.front();

@@ -1,6 +1,6 @@
 #include <chrono>
-#include <iostream>
 #include <fstream>
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -51,7 +51,7 @@ void createComparison() {
     b->fillHourlyData();
     data.push_back(getQueriedData(b));
   }
-  std::ofstream ofs ("/tmp/data.csv", std::ofstream::out);
+  std::ofstream ofs("/tmp/data.csv", std::ofstream::out);
   for (size_t columnIndex = 0; columnIndex < data.size(); columnIndex++) {
     if (columnIndex == 0) {
       ofs << "Time,";
@@ -85,7 +85,8 @@ double timeFunctions(BaseScheduleTest *b) {
     for (int timeStep = 1; timeStep <= 4; timeStep++) {
       currentTime = double(hour) + double(timeStep) / 4.0;
       b->getScheduleValue(currentTime);
-      assert(b->getScheduleValue(currentTime) > 0); // catch for bad schedule lookups only in debug
+      assert(b->getScheduleValue(currentTime) >
+             0); // catch for bad schedule lookups only in debug
     }
   }
   auto stop2 = high_resolution_clock::now();

@@ -1,5 +1,6 @@
-#include <case1.h>
 #include <string>
+
+#include <case1.h>
 
 std::string Case1Test::name() { return "Case 1"; }
 
@@ -17,7 +18,7 @@ double Case1Test::getScheduleValue(double time) {
     return schedule.data[time];
   } else {
     auto potentialSelection = schedule.data[firstTimeStamp];
-    for (auto const & it : schedule.data) {
+    for (auto const &it : schedule.data) {
       potentialSelection = it.second;
       if (it.first > time) {
         break;

@@ -8,6 +8,7 @@
 class Case2Test : public BaseScheduleTest {
   std::vector<double> timestamps;
   std::vector<double> values;
+
 public:
   std::string name() override;
   void fillHourlyData() override;
