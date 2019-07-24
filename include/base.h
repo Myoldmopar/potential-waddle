@@ -7,8 +7,8 @@ class BaseScheduleTest {
 public:
   virtual std::string name() = 0;
   virtual void fillHourlyData() = 0;
-  virtual float getScheduleValue(float currentTime) = 0;
-  static float knownValue(float timeHour) { return 2 * timeHour; }
+  virtual double getScheduleValue(double currentTime) = 0;
+  static double knownValue(double timeHour) { return 2 * timeHour; }
 };
 
 #endif // BASE_H

@@ -1,7 +1,5 @@
 #include <case1.h>
-#include <map>
 #include <string>
-#include <vector>
 
 std::string Case1Test::name() { return "Case 1"; }
 
@@ -12,7 +10,7 @@ void Case1Test::fillHourlyData() {
   }
 }
 
-float Case1Test::getScheduleValue(float time) {
+double Case1Test::getScheduleValue(double time) {
   if (time <= firstTimeStamp) {
     return schedule.data[firstTimeStamp];
   } else if (schedule.data.find(time) != schedule.data.end()) {

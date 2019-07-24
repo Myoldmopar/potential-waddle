@@ -11,7 +11,7 @@ void Case2Test::fillHourlyData() {
   }
 }
 
-float Case2Test::getScheduleValue(float time) {
+double Case2Test::getScheduleValue(double time) {
   if (time <= timestamps.front()) {
     return values.front();
   } else {
@@ -21,7 +21,7 @@ float Case2Test::getScheduleValue(float time) {
       return values[index];
     } else {
       auto potentialSelection = values.front();
-      for (int i = 0; i < timestamps.size(); i++) {
+      for (size_t i = 0; i < timestamps.size(); i++) {
         if (timestamps[i] >= time) {
           potentialSelection = values[i];
           break;

@@ -11,11 +11,11 @@ class Case1Test : public BaseScheduleTest {
     std::map<double, double> data; // note std::map is ordered
   };
   Schedule schedule;
-  float firstTimeStamp = 0;
+  double firstTimeStamp = 0;
 public:
   std::string name() override;
   void fillHourlyData() override;
-  float getScheduleValue(float) override;
+  double getScheduleValue(double) override;
 };
 
 #endif // CASE1_H

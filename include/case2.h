@@ -6,12 +6,12 @@
 #include <base.h>
 
 class Case2Test : public BaseScheduleTest {
-  std::vector<float> timestamps;
-  std::vector<float> values;
+  std::vector<double> timestamps;
+  std::vector<double> values;
 public:
   std::string name() override;
   void fillHourlyData() override;
-  float getScheduleValue(float) override;
+  double getScheduleValue(double) override;
 };
 
 #endif // CASE2_H
