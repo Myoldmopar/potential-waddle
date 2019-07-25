@@ -1,17 +1,17 @@
 #include <algorithm>
 
-#include <case2.h>
+#include <case3.h>
 
-std::string Case2Test::name() { return "Case 2 - separate time/value arrays"; }
+std::string Case3Test::name() { return "Case 3 - separate time/value arrays with moving lower bound"; }
 
-void Case2Test::fillHourlyData() {
+void Case3Test::fillHourlyData() {
   for (int hour = 1; hour <= 8760; hour++) {
     timestamps.push_back(hour);
     values.push_back(BaseScheduleTest::knownValue(hour));
   }
 }
 
-double Case2Test::getScheduleValue(double time) {
+double Case3Test::getScheduleValue(double time) {
   if (time <= timestamps.front()) {
     return values.front();
   } else {
@@ -21,8 +21,9 @@ double Case2Test::getScheduleValue(double time) {
       return values[index];
     } else {
       auto potentialSelection = values.front();
-      for (size_t i = 0; i < timestamps.size(); i++) {
+      for (size_t i = lastIndexUsed; i < timestamps.size(); i++) {
         if (timestamps[i] >= time) {
+          lastIndexUsed = i;
           potentialSelection = values[i];
           break;
         }

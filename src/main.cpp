@@ -7,7 +7,12 @@
 #include <base.h>
 #include <case1.h>
 #include <case2.h>
+#include <case3.h>
+#include <case4.h>
+#include <case5.h>
 #include <cassert>
+
+std::vector<BaseScheduleTest *> toTest;
 
 std::vector<double> getQueriedData(BaseScheduleTest *b) {
   std::vector<double> d;
@@ -44,7 +49,6 @@ std::vector<double> getBaselineData() {
 
 void createComparison() {
   std::vector<std::vector<double>> data;
-  std::vector<BaseScheduleTest *> toTest{new Case1Test, new Case2Test};
   data.push_back(getTimeData());
   data.push_back(getBaselineData());
   for (auto b : toTest) {
@@ -96,10 +100,10 @@ double timeFunctions(BaseScheduleTest *b) {
 }
 
 int main() {
+  toTest = {new Case1Test, new Case2Test, new Case3Test, new Case4Test, new Case5Test};
   std::cout << "Creating output value comparison... ";
   createComparison();
   std::cout << "Done, ready for timing\n";
-  std::vector<BaseScheduleTest *> toTest{new Case1Test, new Case2Test};
   int const numTestPasses = 3;
   for (auto b : toTest) {
     double timeAggregate = 0.0;
@@ -107,6 +111,6 @@ int main() {
       timeAggregate += timeFunctions(b);
     }
     double const avgTime = timeAggregate / numTestPasses;
-    std::cout << "Average time for " << b->name() << " = " << avgTime << " s\n";
+    std::cout << "Average time for \"" << b->name() << "\" = " << avgTime << " s\n";
   }
 }

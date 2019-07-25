@@ -2,7 +2,7 @@
 
 #include <case1.h>
 
-std::string Case1Test::name() { return "Case 1"; }
+std::string Case1Test::name() { return "Case 1 - map of time/value pairs"; }
 
 void Case1Test::fillHourlyData() {
   firstTimeStamp = 1;
